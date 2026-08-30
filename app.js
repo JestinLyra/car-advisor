@@ -9,18 +9,20 @@ const checks=[
 ['Brake fluid','Confirm between MIN and MAX; low fluid needs investigation.'],
 ['Lights & wipers','Test exterior lights, washers and wiper condition.']];
 const tripItems=[
-['Tyres','Check cold pressure, tread, cracks, bulges and visible damage.'],
 ['Engine oil','Check on level ground with the engine off and settled.'],
-['Water levels','When the engine is cold, check coolant; also check windscreen washer fluid. Never open a hot radiator cap.'],
-['Lights','Test headlights, brake lights, indicators and hazard lights.'],
 ['Fuel','Confirm there is enough fuel for the planned trip.'],
+['Lights','Test headlights, brake lights, indicators and hazard lights.'],
+['P plate sign','Confirm P plates are securely displayed and clearly visible at the front and rear.'],
+['Roadside essentials','Caross jump start kit, power bank, car water, shopping bag, emergency contact informed, and car insurance validity.'],
 ['Spare / repair kit','Check the spare tyre or repair kit, jack and wheel tools.'],
-['Roadside essentials','Carry roadside-assistance details, phone charger and emergency contacts.']];
+['Tyres','Check cold pressure, tread, cracks, bulges and visible damage.'],
+['Water levels','When the engine is cold, check coolant; also check windscreen washer fluid. Never open a hot radiator cap.']];
 const ODO_BASELINE=285915,ODO_MAX_DISTANCE=10000;
 const key='yaris-care-v1';let state=JSON.parse(localStorage.getItem(key)||'null')||{done:[],odo:285915,services:[]};
 if(!state.refuel)state.refuel={date:'',litres:'',price:'',unitPrice:'',fuelType:'U91',location:''};
 state.refuel.fuelType=state.refuel.fuelType||'U91';state.refuel.unitPrice=state.refuel.unitPrice||'';
 state.tripDone=state.tripDone||[];
+if(state.tripChecklistVersion!==2){state.tripDone=[];state.tripChecklistVersion=2;}
 let nearbyCache=[];
 const $=s=>document.querySelector(s),save=()=>localStorage.setItem(key,JSON.stringify(state));
 function render(){

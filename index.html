@@ -10,14 +10,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260830-10">
-  <link rel="stylesheet" href="styles.css?v=20260830-10">
-  <link rel="stylesheet" href="fuel.css?v=20260830-10">
+  <link rel="manifest" href="manifest.webmanifest?v=20260830-12">
+  <link rel="stylesheet" href="styles.css?v=20260830-12">
+  <link rel="stylesheet" href="fuel.css?v=20260830-12">
 </head>
 <body>
   <header>
     <div class="eyebrow">2011 TOYOTA YARIS · HATCH</div>
-    <h1>Good morning,<br><span>Your Yaris is ready.</span></h1>
+    <h1>Tara!<br><span>Your Yaris is ready.</span></h1>
   </header>
 
   <main>
@@ -54,11 +54,11 @@
 
   <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><a class="nav-link" href="https://service.vic.gov.au/find-services/transport-and-driving/servo-saver" target="_blank" rel="noopener" aria-label="Open Servo Saver">⛽<small>Servo</small></a></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260830-10"></script>
+  <script src="app.js?v=20260830-12"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-10');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-12');
         registration.update();
       });
     }
