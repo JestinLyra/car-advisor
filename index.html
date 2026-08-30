@@ -10,10 +10,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-22">
-  <link rel="stylesheet" href="styles.css?v=20260831-22">
-  <link rel="stylesheet" href="fuel.css?v=20260831-22">
-  <link rel="stylesheet" href="gestures.css?v=20260831-22">
+  <link rel="manifest" href="manifest.webmanifest?v=20260831-23">
+  <link rel="stylesheet" href="styles.css?v=20260831-23">
+  <link rel="stylesheet" href="fuel.css?v=20260831-23">
+  <link rel="stylesheet" href="gestures.css?v=20260831-23">
 </head>
 <body>
   <header>
@@ -51,19 +51,25 @@
     </section>
 
     <section>
-      <div class="section-head"><div><p class="eyebrow">SERVICE BOOK</p><h2>Reminders</h2></div><button class="text-btn" id="addService">+ Add</button></div>
+      <div class="section-head"><div><p class="eyebrow">SERVICE BOOK</p><div class="reminder-title"><h2>Reminders</h2><button id="undoReminder" type="button" disabled>↶ Undo</button></div></div><button class="text-btn" id="addService">+ Add</button></div>
       <div id="services" class="records"></div>
+    </section>
+
+    <section class="backup-card">
+      <div><p class="eyebrow">YOUR DATA</p><h2>Keep a backup</h2><p>Save a copy of your Yaris records in Files on your iPhone.</p></div>
+      <button id="downloadBackup" type="button">⇩ Save backup to Files</button>
+      <small id="backupStatus" aria-live="polite"></small>
     </section>
 
   </main>
 
   <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><button id="navCar" aria-label="Edit car information"><span class="plate-icon" aria-hidden="true">VIC</span><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-22"></script>
+  <script src="app.js?v=20260831-23"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-22');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-23');
         registration.update();
       });
     }

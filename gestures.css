@@ -52,3 +52,61 @@
   padding-right: 18px;
   background: #d83a52;
 }
+
+.reminder-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.reminder-title button {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: #e8eeff;
+  color: var(--green);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.reminder-title button:disabled {
+  opacity: .35;
+}
+
+.backup-card {
+  display: grid;
+  gap: 13px;
+  padding: 20px;
+  border: 1px solid #cfdafa;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.backup-card h2 {
+  margin-top: 4px;
+}
+
+.backup-card p:not(.eyebrow) {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.backup-card button {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 13px 15px;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+}
+
+.backup-card small {
+  min-height: 14px;
+  color: var(--muted);
+  text-align: center;
+}
