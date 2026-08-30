@@ -1,6 +1,6 @@
 # My Yaris Care
 
-An iPhone-first maintenance tracker for a 2011 Toyota Yaris hatchback. It stores checklist progress, odometer, detailed refuel entries, service records, insurance information and replaced-part details locally on the device. Its location feature suggests nearby fuel stations while logging a refuel.
+An iPhone-first maintenance tracker for a 2011 Toyota Yaris hatchback. It stores checklist progress, odometer, detailed refuel entries, service records and title-based car notes locally on the device. Its location feature suggests nearby fuel stations while logging a refuel.
 
 ## Publish free with GitHub Pages
 
@@ -11,6 +11,6 @@ An iPhone-first maintenance tracker for a 2011 Toyota Yaris hatchback. It stores
 
 ## Publishing an update
 
-Upload every changed file. The app uses a versioned service worker and versioned asset URLs to replace old cached builds. For each future release, change every occurrence of the release value (currently `20260830-15`) in `index.html` and `sw.js`, including the cache name.
+Upload every changed file. The app uses a versioned service worker and versioned asset URLs to replace old cached builds. For each future release, change every occurrence of the release value (currently `20260830-16`) in `index.html` and `sw.js`, including the cache name.
 
-If an iPhone still shows the old build immediately after this first cache-busting release, open the GitHub Pages URL once in Safari with `?update=20260830-15` added to the end, refresh, then reopen the Home Screen app.
+If an iPhone still shows the old build immediately after this first cache-busting release, open the GitHub Pages URL once in Safari with `?update=20260830-16` added to the end, refresh, then reopen the Home Screen app.
