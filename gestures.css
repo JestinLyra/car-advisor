@@ -2,6 +2,19 @@
   --safe-top: env(safe-area-inset-top, 0px);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+}
+
 .record-swipe {
   position: relative;
   overflow: hidden;
@@ -120,9 +133,9 @@ dialog {
   top: var(--dialog-top, max(8px, env(safe-area-inset-top)));
   right: auto;
   bottom: auto;
-  left: 50%;
-  width: min(420px, calc(100vw - 20px));
-  max-width: calc(100vw - 20px);
+  left: var(--dialog-left, 50%);
+  width: var(--dialog-width, min(420px, calc(100vw - 20px)));
+  max-width: none;
   max-height: var(--dialog-height, calc(100dvh - 16px));
   margin: 0;
   overflow: hidden;
@@ -149,6 +162,14 @@ dialog form {
   overscroll-behavior: contain;
   padding: 0 2px 4px;
   -webkit-overflow-scrolling: touch;
+}
+
+dialog input,
+dialog textarea,
+dialog select {
+  min-width: 0;
+  max-width: 100%;
+  font-size: 16px;
 }
 
 .dialog-actions {
