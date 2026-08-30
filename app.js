@@ -17,7 +17,7 @@ const tripItems=[
 ['Spare / repair kit','Check the spare tyre or repair kit, jack and wheel tools.'],
 ['Tyres','Check cold pressure, tread, cracks, bulges and visible damage.'],
 ['Water levels','When the engine is cold, check coolant; also check windscreen washer fluid. Never open a hot radiator cap.']];
-const ODO_BASELINE=285915,ODO_MAX_DISTANCE=10000;
+const ODO_BASELINE=285915,ODO_MAX_DISTANCE=10000,FUEL_MONTH_MAX=300;
 const key='yaris-care-v1';let state=JSON.parse(localStorage.getItem(key)||'null')||{done:[],odo:285915,services:[]};
 if(!state.refuel)state.refuel={date:'',litres:'',price:'',fuelType:'U91',location:''};
 state.refuel.fuelType=state.refuel.fuelType||'U91';
@@ -29,12 +29,15 @@ if(!state.carNotes){state.carNotes=[];if(state.carInfo?.insurance)state.carNotes
 const $=s=>document.querySelector(s),save=()=>localStorage.setItem(key,JSON.stringify(state)),escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function todayInputValue(){const date=new Date();return`${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;}
 function formatDate(value){if(!value)return'';let date,match=String(value).match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(/^\d{4}-\d{2}-\d{2}$/.test(value))date=new Date(value+'T00:00:00');else if(match)date=new Date(Number(match[3]),Number(match[2])-1,Number(match[1]));else date=new Date(value);if(Number.isNaN(date.getTime()))return String(value);const day=String(date.getDate()).padStart(2,'0'),month=date.toLocaleDateString('en-AU',{month:'short'}),weekday=date.toLocaleDateString('en-AU',{weekday:'short'});return`${weekday} / ${day} ${month}`;}
+function fuelMonthSeries(count=6){const now=new Date();return Array.from({length:count},(_,index)=>{const date=new Date(now.getFullYear(),now.getMonth()-(count-1-index),1),key=`${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}`,total=state.refuels.filter(item=>String(item.date).slice(0,7)===key).reduce((sum,item)=>sum+(Number(item.price)||0),0);return{key,label:date.toLocaleDateString('en-AU',{month:'short'}),fullLabel:date.toLocaleDateString('en-AU',{month:'long',year:'numeric'}),total};});}
 function render(){
  $('#checklist').innerHTML=checks.map((c,i)=>`<label class="check ${state.done.includes(i)?'done':''}"><input type="checkbox" data-i="${i}" ${state.done.includes(i)?'checked':''}><div><strong>${c[0]}</strong><p>${c[1]}</p></div></label>`).join('');
- const now=new Date(),monthKey=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`,monthlyFuelCost=state.refuels.filter(item=>String(item.date).slice(0,7)===monthKey).reduce((total,item)=>total+(Number(item.price)||0),0);
+ const fuelMonths=fuelMonthSeries(),monthlyFuelCost=fuelMonths[fuelMonths.length-1].total;
  const n=state.done.length;$('#count').textContent=`${n} / ${checks.length}`;$('#odo').textContent=state.odo.toLocaleString();$('#fuel').textContent=`A$${monthlyFuelCost.toFixed(2)}`;
  const r=state.refuels[0]||state.refuel;
  $('#fuelDetails').innerHTML=`<div class="fuel-field"><span>Date</span><strong>${r.date?formatDate(r.date):'Not recorded'}</strong></div><div class="fuel-field"><span>Fuel type</span><strong>${r.fuelType||'Not recorded'}</strong></div><div class="fuel-field"><span>Litres bought</span><strong>${r.litres?r.litres+' L':'Not recorded'}</strong></div><div class="fuel-field"><span>Fuel paid</span><strong>${r.price?'A$'+Number(r.price).toFixed(2):'Not recorded'}</strong></div><div class="fuel-field location"><span>Fuel station</span><strong>${r.location?escapeHtml(r.location):'Not recorded'}</strong></div>`;
+ $('#fuelChart').setAttribute('aria-label',fuelMonths.map(month=>`${month.fullLabel}: A$${month.total.toFixed(2)}`).join('; '));
+ $('#fuelChart').innerHTML=`<div class="fuel-chart-grid" aria-hidden="true"><span data-value="A$300"></span><span data-value="A$200"></span><span data-value="A$100"></span><span data-value="A$0"></span></div><div class="fuel-bars">${fuelMonths.map(month=>{const height=Math.min(100,month.total/FUEL_MONTH_MAX*100);return`<div class="fuel-bar-column" title="${month.fullLabel}: A$${month.total.toFixed(2)}"><strong>${month.total?`$${month.total.toFixed(0)}`:'—'}</strong><div class="fuel-bar-track"><span class="fuel-bar-fill" style="height:${height}%"></span></div><small>${month.label}</small></div>`}).join('')}</div>`;
  $('#services').innerHTML=state.services.length?state.services.map(x=>{const isReminder=x.type==='reminder'||/^Reminder:\s*/.test(x.job),title=isReminder?x.job.replace(/^Reminder:\s*/,''):x.job,details=isReminder?formatDate(x.date):`${formatDate(x.date)} · ${Number(x.km).toLocaleString()} km`;return `<div class="record"><div><strong>${escapeHtml(title)}</strong><p>${escapeHtml(details)}</p></div></div>`}).join(''):'<div class="record"><div><strong>No reminders yet</strong><p>Add a reminder to begin your list.</p></div></div>';
  document.querySelectorAll('.check input').forEach(x=>x.onchange=()=>{let i=+x.dataset.i;state.done=x.checked?[...new Set([...state.done,i])]:state.done.filter(v=>v!==i);save();render()});
 }
