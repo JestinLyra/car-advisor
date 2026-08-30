@@ -23,6 +23,7 @@ if(!state.refuel)state.refuel={date:'',litres:'',price:'',unitPrice:'',fuelType:
 state.refuel.fuelType=state.refuel.fuelType||'U91';state.refuel.unitPrice=state.refuel.unitPrice||'';
 state.tripDone=state.tripDone||[];
 if(state.tripChecklistVersion!==2){state.tripDone=[];state.tripChecklistVersion=2;}
+state.carInfo=state.carInfo||{insurance:'',parts:'',date:''};
 let nearbyCache=[];
 const $=s=>document.querySelector(s),save=()=>localStorage.setItem(key,JSON.stringify(state));
 function render(){
@@ -54,3 +55,4 @@ function activateNav(button){document.querySelectorAll('nav button').forEach(ite
 $('#navHome').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});activateNav($('#navHome'))};
 $('#navChecks').onclick=()=>{$('#checksSection').scrollIntoView({behavior:'smooth',block:'start'});activateNav($('#navChecks'))};
 $('#navRecords').onclick=()=>{$('#services').scrollIntoView({behavior:'smooth',block:'start'});activateNav($('#navRecords'))};render();
+$('#navCar').onclick=()=>{const info=state.carInfo;modal('Car information',`<label class="field-label">Car insurance information<textarea id="mInsurance" placeholder="Insurer, policy number, expiry date and contact details">${info.insurance}</textarea></label><label class="field-label">Parts replaced<input id="mParts" value="${info.parts}" placeholder="e.g. battery, tyres or wiper blades"></label><label class="field-label">Replacement date<input id="mPartsDate" type="date" value="${info.date}"></label>`,()=>{state.carInfo={insurance:$('#mInsurance').value.trim(),parts:$('#mParts').value.trim(),date:$('#mPartsDate').value};return true});activateNav($('#navCar'))};
