@@ -1,0 +1,41 @@
+.quick .quick-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.quick .quick-label span {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+}
+
+.quick-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  mix-blend-mode: multiply;
+}
+
+.quick-label-expenses {
+  font-size: 8px !important;
+  letter-spacing: .45px !important;
+}
+
+.quick .quick-icon-note {
+  display: block;
+  width: 31px;
+  height: 34px;
+  margin: 3px auto 2px;
+}
+
+.quick-note {
+  padding-top: 15px;
+}

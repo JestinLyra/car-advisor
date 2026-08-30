@@ -10,10 +10,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-29">
-  <link rel="stylesheet" href="styles.css?v=20260831-29">
-  <link rel="stylesheet" href="fuel.css?v=20260831-29">
-  <link rel="stylesheet" href="gestures.css?v=20260831-29">
+  <link rel="manifest" href="manifest.webmanifest?v=20260831-31">
+  <link rel="stylesheet" href="styles.css?v=20260831-31">
+  <link rel="stylesheet" href="fuel.css?v=20260831-31">
+  <link rel="stylesheet" href="gestures.css?v=20260831-31">
+  <link rel="stylesheet" href="quick-icons.css?v=20260831-31">
 </head>
 <body>
   <header>
@@ -23,9 +24,9 @@
 
   <main>
     <section class="quick-grid">
-      <button class="quick" data-action="odometer"><span>ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <div class="quick expense-summary" aria-label="Monthly car expenses"><span>MONTHLY CAR EXPENSES</span><strong id="fuel">A$0.00</strong><small>this month</small></div>
-      <button class="quick" data-action="note"><span>NOTE</span><strong>＋</strong><small>add reminder</small></button>
+      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo.jpg?v=20260831-31" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
+      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.jpg?v=20260831-31" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
+      <button class="quick quick-note" data-action="note"><span>NOTE</span><img class="quick-icon quick-icon-note" src="assets/quick-note.jpg?v=20260831-31" alt=""><small>add reminder</small></button>
     </section>
 
     <section class="trip-card" id="tripCard">
@@ -68,13 +69,13 @@
 
   </main>
 
-  <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><button id="navCar" aria-label="Edit car information"><span class="plate-icon" aria-hidden="true">VIC</span><small>Car</small></button></nav>
+  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.jpg?v=20260831-31" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.jpg?v=20260831-31" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.jpg?v=20260831-31" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.jpg?v=20260831-31" alt=""><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-29"></script>
+  <script src="app.js?v=20260831-31"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-29');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-31');
         registration.update();
       });
     }
