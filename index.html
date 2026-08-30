@@ -10,10 +10,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-26">
-  <link rel="stylesheet" href="styles.css?v=20260831-26">
-  <link rel="stylesheet" href="fuel.css?v=20260831-26">
-  <link rel="stylesheet" href="gestures.css?v=20260831-26">
+  <link rel="manifest" href="manifest.webmanifest?v=20260831-27">
+  <link rel="stylesheet" href="styles.css?v=20260831-27">
+  <link rel="stylesheet" href="fuel.css?v=20260831-27">
+  <link rel="stylesheet" href="gestures.css?v=20260831-27">
 </head>
 <body>
   <header>
@@ -24,7 +24,7 @@
   <main>
     <section class="quick-grid">
       <button class="quick" data-action="odometer"><span>ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <button class="quick" data-action="fuel"><span>MONTHLY FUEL COST</span><strong id="fuel">A$0.00</strong><small>tap to add</small></button>
+      <div class="quick expense-summary" aria-label="Monthly car expenses"><span>MONTHLY CAR EXPENSES</span><strong id="fuel">A$0.00</strong><small>this month</small></div>
       <button class="quick" data-action="note"><span>NOTE</span><strong>＋</strong><small>add reminder</small></button>
     </section>
 
@@ -40,9 +40,14 @@
       <div class="section-head fuel-head"><div><p class="eyebrow">FUEL LOG</p><h2>Last refuel</h2></div><button class="text-btn" id="editFuel">Edit</button></div>
       <div class="fuel-details" id="fuelDetails"></div>
       <div class="fuel-history">
-        <div class="fuel-chart-head"><div><strong>Monthly fuel costs</strong><small>Current month and previous five months</small></div><span>A$300 max</span></div>
-        <div class="fuel-chart" id="fuelChart" role="img" aria-label="Monthly fuel-cost bar graph"></div>
+        <div class="fuel-chart-head"><div><strong>Monthly car expenses</strong><small>Fuel and miscellaneous costs</small></div><span>A$300 max</span></div>
+        <div class="fuel-chart" id="fuelChart" role="img" aria-label="Monthly car-expense bar graph"></div>
       </div>
+    </section>
+
+    <section class="misc-card">
+      <div class="section-head misc-head"><div><p class="eyebrow">OTHER COSTS</p><h2>Car miscellaneous</h2></div><button class="text-btn" id="addMiscExpense">+ Add</button></div>
+      <div id="miscExpenses" class="misc-expenses"></div>
     </section>
 
     <section id="checksSection">
@@ -65,11 +70,11 @@
 
   <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><button id="navCar" aria-label="Edit car information"><span class="plate-icon" aria-hidden="true">VIC</span><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-26"></script>
+  <script src="app.js?v=20260831-27"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-26');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-27');
         registration.update();
       });
     }
