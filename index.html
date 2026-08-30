@@ -10,9 +10,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260830-18">
-  <link rel="stylesheet" href="styles.css?v=20260830-18">
-  <link rel="stylesheet" href="fuel.css?v=20260830-18">
+  <link rel="manifest" href="manifest.webmanifest?v=20260830-19">
+  <link rel="stylesheet" href="styles.css?v=20260830-19">
+  <link rel="stylesheet" href="fuel.css?v=20260830-19">
 </head>
 <body>
   <header>
@@ -23,7 +23,7 @@
   <main>
     <section class="quick-grid">
       <button class="quick" data-action="odometer"><span>ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <button class="quick" data-action="fuel"><span>LAST REFUEL</span><strong id="fuel">—</strong><small>tap to view</small></button>
+      <button class="quick" data-action="fuel"><span>MONTHLY FUEL COST</span><strong id="fuel">A$0.00</strong><small>tap to add</small></button>
       <button class="quick" data-action="note"><span>NOTE</span><strong>＋</strong><small>add reminder</small></button>
     </section>
 
@@ -54,11 +54,11 @@
 
   <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><button id="navCar" aria-label="Edit car information"><span class="plate-icon" aria-hidden="true">VIC</span><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260830-18"></script>
+  <script src="app.js?v=20260830-19"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-18');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-19');
         registration.update();
       });
     }
