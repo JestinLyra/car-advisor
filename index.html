@@ -10,10 +10,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-23">
-  <link rel="stylesheet" href="styles.css?v=20260831-23">
-  <link rel="stylesheet" href="fuel.css?v=20260831-23">
-  <link rel="stylesheet" href="gestures.css?v=20260831-23">
+  <link rel="manifest" href="manifest.webmanifest?v=20260831-24">
+  <link rel="stylesheet" href="styles.css?v=20260831-24">
+  <link rel="stylesheet" href="fuel.css?v=20260831-24">
+  <link rel="stylesheet" href="gestures.css?v=20260831-24">
 </head>
 <body>
   <header>
@@ -65,11 +65,11 @@
 
   <nav><button class="active" id="navHome">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button><button id="navCar" aria-label="Edit car information"><span class="plate-icon" aria-hidden="true">VIC</span><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-23"></script>
+  <script src="app.js?v=20260831-24"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-23');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-24');
         registration.update();
       });
     }

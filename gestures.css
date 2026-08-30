@@ -1,3 +1,7 @@
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
 .record-swipe {
   position: relative;
   overflow: hidden;
@@ -109,4 +113,58 @@
   min-height: 14px;
   color: var(--muted);
   text-align: center;
+}
+
+dialog {
+  position: fixed;
+  top: var(--dialog-top, max(8px, env(safe-area-inset-top)));
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: min(420px, calc(100vw - 20px));
+  max-width: calc(100vw - 20px);
+  max-height: var(--dialog-height, calc(100dvh - 16px));
+  margin: 0;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  max-height: var(--dialog-height, calc(100dvh - 16px));
+  overflow: hidden;
+  padding: 18px;
+}
+
+#modalTitle,
+.dialog-actions {
+  flex: none;
+}
+
+#modalBody {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 2px 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dialog-actions {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+@media (max-height: 560px) {
+  dialog form {
+    padding: 14px;
+  }
+
+  #modalTitle {
+    margin-top: 0;
+    font-size: 19px;
+  }
 }
