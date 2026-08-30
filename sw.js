@@ -1,11 +1,11 @@
-const CACHE = 'yaris-care-20260830-3';
+const CACHE = 'yaris-care-20260830-5';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=20260830-3',
-  './fuel.css?v=20260830-3',
-  './app.js?v=20260830-3',
-  './manifest.webmanifest?v=20260830-3'
+  './styles.css?v=20260830-5',
+  './fuel.css?v=20260830-5',
+  './app.js?v=20260830-5',
+  './manifest.webmanifest?v=20260830-5'
 ];
 
 self.addEventListener('install', event => {

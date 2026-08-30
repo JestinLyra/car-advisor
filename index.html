@@ -10,18 +10,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260830-3">
-  <link rel="stylesheet" href="styles.css?v=20260830-3">
-  <link rel="stylesheet" href="fuel.css?v=20260830-3">
+  <link rel="manifest" href="manifest.webmanifest?v=20260830-5">
+  <link rel="stylesheet" href="styles.css?v=20260830-5">
+  <link rel="stylesheet" href="fuel.css?v=20260830-5">
 </head>
 <body>
   <header>
     <div class="eyebrow">2011 TOYOTA YARIS · HATCH</div>
     <h1>Good morning,<br><span>Your Yaris is ready.</span></h1>
-    <div class="hero-card">
-      <div class="ring" id="ring"><strong id="score">0%</strong><small>MONTHLY</small></div>
-      <div><p class="muted">Next review</p><h2 id="nextReview">Last Saturday</h2><button id="resetMonth">Start new month</button></div>
-    </div>
   </header>
 
   <main>
@@ -29,6 +25,14 @@
       <button class="quick" data-action="odometer"><span>ODO</span><strong id="odo">285,915</strong><small>km</small></button>
       <button class="quick" data-action="fuel"><span>LAST REFUEL</span><strong id="fuel">—</strong><small>tap to view</small></button>
       <button class="quick" data-action="note"><span>NOTE</span><strong>＋</strong><small>add reminder</small></button>
+    </section>
+
+    <section class="trip-card" id="tripCard">
+      <div id="tripBody">
+        <p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2>
+        <p>Tyres, oil, water levels, lights, fuel and your roadside kit.</p>
+        <button id="tripCheck">Open checklist →</button>
+      </div>
     </section>
 
     <section class="fuel-card">
@@ -49,20 +53,15 @@
       <div id="services" class="records"></div>
     </section>
 
-    <section class="trip-card">
-      <p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2>
-      <p>Tyres, oil, coolant, lights, fuel and your roadside kit.</p>
-      <button id="tripCheck">Open checklist →</button>
-    </section>
   </main>
 
   <nav><button class="active">⌂<small>Home</small></button><button id="navChecks">✓<small>Checks</small></button><button id="navRecords">▤<small>Records</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260830-3"></script>
+  <script src="app.js?v=20260830-5"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-3');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260830-5');
         registration.update();
       });
     }
