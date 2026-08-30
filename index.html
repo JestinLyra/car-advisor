@@ -9,6 +9,7 @@
   <title>My Yaris Care</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fuel.css">
 </head>
 <body>
   <header>
@@ -23,8 +24,16 @@
   <main>
     <section class="quick-grid">
       <button class="quick" data-action="odometer"><span>ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <button class="quick" data-action="fuel"><span>FUEL</span><strong id="fuel">—</strong><small>tap to log</small></button>
+      <button class="quick" data-action="fuel"><span>LAST REFUEL</span><strong id="fuel">—</strong><small>tap to view</small></button>
       <button class="quick" data-action="note"><span>NOTE</span><strong>＋</strong><small>add reminder</small></button>
+    </section>
+
+    <section class="fuel-card">
+      <div class="section-head fuel-head"><div><p class="eyebrow">FUEL LOG</p><h2>Last refuel</h2></div><button class="text-btn" id="editFuel">Edit</button></div>
+      <div class="fuel-details" id="fuelDetails"></div>
+      <div class="nearby-box"><div><strong>Find better fuel nearby</strong><p id="nearbyStatus">Use your current location to find nearby stations.</p></div><button id="findFuel">Use my location</button></div>
+      <div id="nearbyStations" class="nearby-stations"></div>
+      <a class="price-link" href="https://service.vic.gov.au/find-services/transport-and-driving/servo-saver" target="_blank" rel="noopener">Compare official live prices →</a>
     </section>
 
     <section>
