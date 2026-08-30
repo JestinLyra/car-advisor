@@ -1,0 +1,18 @@
+nav {
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.nav-icon {
+  width: 49px;
+  height: 44px;
+  margin-bottom: 1px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  background: #fff;
+}
+
+.nav-icon-car {
+  width: 55px;
+}
