@@ -21,7 +21,21 @@
   height: 25px;
   object-fit: contain;
   flex: 0 0 auto;
-  mix-blend-mode: multiply;
+  box-sizing: content-box;
+  padding: 3px;
+  background: linear-gradient(145deg, #fff 20%, #eef3ff 100%);
+  border: 2px solid #fff;
+  border-radius: 9px;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    0 3px 0 #c6d2e8,
+    0 7px 10px #23386b38;
+  filter: saturate(1.08) contrast(1.06);
+  transform: rotate(-3deg) translateY(-1px);
+}
+
+.quick-label-expenses .quick-icon {
+  transform: rotate(3deg) translateY(-1px);
 }
 
 .quick-label-expenses {
@@ -33,7 +47,8 @@
   display: block;
   width: 31px;
   height: 34px;
-  margin: 3px auto 2px;
+  margin: 3px auto 7px;
+  transform: rotate(-2deg) translateY(-1px);
 }
 
 .quick-note {

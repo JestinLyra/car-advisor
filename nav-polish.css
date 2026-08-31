@@ -4,15 +4,47 @@ nav {
   -webkit-backdrop-filter: none;
 }
 
-.nav-icon {
-  width: 49px;
-  height: 44px;
-  margin-bottom: 1px;
-  object-fit: contain;
-  mix-blend-mode: normal;
+nav button,
+nav .nav-link {
   background: #fff;
 }
 
+.nav-icon {
+  width: 47px;
+  height: 42px;
+  box-sizing: content-box;
+  padding: 3px;
+  margin: 0 auto 5px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    0 3px 0 #c9d3e5,
+    0 7px 11px #26385e38;
+  filter: brightness(1.06) contrast(1.08) saturate(1.08);
+  transform: rotate(-2deg) translateY(-1px);
+}
+
 .nav-icon-car {
-  width: 55px;
+  width: 53px;
+  transform: rotate(2deg) translateY(-1px);
+}
+
+#navChecks .nav-icon {
+  transform: rotate(2deg) translateY(-1px);
+}
+
+#navRecords .nav-icon {
+  transform: rotate(-1deg) translateY(-1px);
+}
+
+nav button:active .nav-icon {
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    0 1px 0 #c9d3e5,
+    0 3px 5px #26385e2e;
+  transform: translateY(1px) scale(.98);
 }
