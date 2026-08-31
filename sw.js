@@ -1,21 +1,21 @@
-const CACHE = 'yaris-care-20260831-34';
+const CACHE = 'yaris-care-20260831-35';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=20260831-34',
-  './fuel.css?v=20260831-34',
-  './gestures.css?v=20260831-34',
-  './quick-icons.css?v=20260831-34',
-  './nav-polish.css?v=20260831-34',
-  './app.js?v=20260831-34',
-  './manifest.webmanifest?v=20260831-34',
-  './assets/nav-home.jpg?v=20260831-34',
-  './assets/nav-checks.jpg?v=20260831-34',
-  './assets/nav-records.jpg?v=20260831-34',
-  './assets/nav-car.jpg?v=20260831-34',
-  './assets/quick-odo.jpg?v=20260831-34',
-  './assets/quick-expenses.jpg?v=20260831-34',
-  './assets/quick-note.jpg?v=20260831-34'
+  './styles.css?v=20260831-35',
+  './fuel.css?v=20260831-35',
+  './gestures.css?v=20260831-35',
+  './quick-icons.css?v=20260831-35',
+  './nav-polish.css?v=20260831-35',
+  './app.js?v=20260831-35',
+  './manifest.webmanifest?v=20260831-35',
+  './assets/nav-home.jpg?v=20260831-35',
+  './assets/nav-checks.jpg?v=20260831-35',
+  './assets/nav-records.jpg?v=20260831-35',
+  './assets/nav-car.jpg?v=20260831-35',
+  './assets/quick-odo.jpg?v=20260831-35',
+  './assets/quick-expenses.jpg?v=20260831-35',
+  './assets/quick-note.jpg?v=20260831-35'
 ];
 
 self.addEventListener('install', event => {
