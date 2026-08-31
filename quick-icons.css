@@ -21,14 +21,19 @@
   height: 25px;
   object-fit: contain;
   flex: 0 0 auto;
-  background: #fff;
+  background: transparent;
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  filter: brightness(1.07) contrast(1.13) saturate(1.04);
+  filter: none;
   image-rendering: auto;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
   transform: none;
+}
+
+[data-action="odometer"] .quick-icon {
+  width: 31px;
+  height: 31px;
 }
 
 .quick-label-expenses .quick-icon {
