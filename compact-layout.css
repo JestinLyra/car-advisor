@@ -1,0 +1,303 @@
+/* Compact iPhone layout: preserve features while showing more per screen. */
+
+header {
+  padding-top: calc(18px + env(safe-area-inset-top));
+  padding-bottom: 18px;
+}
+
+header h1 {
+  margin: 8px 0 10px;
+  font-size: 33px;
+}
+
+main {
+  padding: 14px;
+}
+
+section {
+  margin-bottom: 18px;
+}
+
+.quick-grid {
+  gap: 8px;
+}
+
+.quick-grid .quick {
+  min-height: 96px;
+  padding: 9px 5px;
+}
+
+.quick .quick-label {
+  min-height: 29px;
+}
+
+.quick strong {
+  margin-top: 4px;
+}
+
+.quick-note {
+  padding-top: 9px;
+}
+
+.trip-card {
+  padding: 17px 18px;
+  border-radius: 21px;
+}
+
+#tripBody:not(:has(.trip-list)) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trip-copy {
+  min-width: 0;
+}
+
+.trip-copy h2 {
+  margin-top: 2px;
+}
+
+.trip-copy p:not(.eyebrow) {
+  margin: 8px 0 0;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#tripBody:not(:has(.trip-list)) #tripCheck {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0;
+}
+
+.fuel-card,
+.misc-card {
+  padding: 16px;
+  border-radius: 21px;
+}
+
+.fuel-head,
+.misc-head {
+  margin-bottom: 11px;
+}
+
+.fuel-details {
+  gap: 8px;
+}
+
+.fuel-field {
+  min-width: 0;
+  padding: 10px 11px;
+}
+
+.fuel-field.cost,
+.fuel-field.price-per-litre {
+  grid-column: auto;
+}
+
+.fuel-field.station {
+  grid-column: 1 / -1;
+}
+
+.fuel-field strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fuel-history {
+  margin-top: 11px;
+  padding-top: 8px;
+}
+
+.fuel-chart-head {
+  width: 100%;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+}
+
+.fuel-chart-head > span {
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  padding: 0;
+}
+
+.fuel-chart-head small {
+  margin-top: 1px;
+}
+
+.fuel-chart {
+  height: 62px;
+  margin-top: 2px;
+  padding: 0 0 19px;
+  transition: height .25s ease;
+}
+
+.fuel-history:not(.expanded) .fuel-chart-grid {
+  display: none;
+}
+
+.fuel-history:not(.expanded) .fuel-bar-column {
+  grid-template-rows: 1fr 18px;
+}
+
+.fuel-history:not(.expanded) .fuel-bar-column > strong {
+  display: none;
+}
+
+.fuel-history:not(.expanded) .fuel-bar-track {
+  min-height: 28px;
+}
+
+.fuel-history.expanded .fuel-chart {
+  height: 190px;
+  margin-top: 10px;
+  padding: 0 0 22px 34px;
+}
+
+.fuel-history.expanded .fuel-chart-grid {
+  inset: 0 0 22px 34px;
+}
+
+.fuel-history.expanded .fuel-bar-column {
+  grid-template-rows: 19px 1fr 20px;
+}
+
+.misc-expenses,
+.checklist,
+.records {
+  border-radius: 16px;
+}
+
+.misc-expense,
+.record {
+  padding: 10px 12px;
+}
+
+.record-swipe .record,
+.misc-swipe .misc-expense {
+  min-height: 58px;
+}
+
+.misc-expense small,
+.record p {
+  margin-top: 2px;
+}
+
+.section-head {
+  margin: 19px 2px 9px;
+}
+
+#checksSection .section-head {
+  margin-top: 0;
+}
+
+.check {
+  min-height: 58px;
+  grid-template-columns: 34px 1fr;
+  gap: 9px;
+  align-items: center;
+  padding: 9px 11px;
+}
+
+.check input {
+  width: 27px;
+  height: 27px;
+  margin: 0;
+}
+
+.check p {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+#checksSection:not(.checks-expanded) .check p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#showAllChecks {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 16px 16px;
+  background: #fff;
+  color: var(--green);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+#showAllChecks[hidden] {
+  display: none;
+}
+
+.backup-card {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 17px;
+  overflow: hidden;
+}
+
+.backup-card button {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+}
+
+.backup-card button span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.backup-card button b {
+  color: var(--green);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.backup-card small:empty {
+  display: none;
+}
+
+.backup-card small:not(:empty) {
+  min-height: 34px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 370px) {
+  main {
+    padding: 11px;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  .trip-copy p:not(.eyebrow) {
+    max-width: 235px;
+  }
+}

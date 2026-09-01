@@ -10,12 +10,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-39">
-  <link rel="stylesheet" href="styles.css?v=20260831-39">
-  <link rel="stylesheet" href="fuel.css?v=20260831-39">
-  <link rel="stylesheet" href="gestures.css?v=20260831-39">
-  <link rel="stylesheet" href="quick-icons.css?v=20260831-39">
-  <link rel="stylesheet" href="nav-polish.css?v=20260831-39">
+  <link rel="manifest" href="manifest.webmanifest?v=20260901-41">
+  <link rel="stylesheet" href="styles.css?v=20260901-41">
+  <link rel="stylesheet" href="fuel.css?v=20260901-41">
+  <link rel="stylesheet" href="gestures.css?v=20260901-41">
+  <link rel="stylesheet" href="quick-icons.css?v=20260901-41">
+  <link rel="stylesheet" href="nav-polish.css?v=20260901-41">
+  <link rel="stylesheet" href="compact-layout.css?v=20260901-41">
 </head>
 <body>
   <header>
@@ -25,16 +26,15 @@
 
   <main>
     <section class="quick-grid">
-      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260831-39" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260831-39" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
-      <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260831-39" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
+      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260901-41" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
+      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260901-41" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
+      <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260901-41" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
     </section>
 
     <section class="trip-card" id="tripCard">
       <div id="tripBody">
-        <p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2>
-        <p>Tyres, oil, water levels, lights, fuel and your roadside kit.</p>
-        <button id="tripCheck">Open checklist →</button>
+        <div class="trip-copy"><p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2><p>Tyres · oil · water · lights · fuel · roadside kit</p></div>
+        <button id="tripCheck">Open →</button>
       </div>
     </section>
 
@@ -42,7 +42,7 @@
       <div class="section-head fuel-head"><div><p class="eyebrow">FUEL LOG</p><h2>Last refuel</h2></div><button class="text-btn" id="editFuel">Edit</button></div>
       <div class="fuel-details" id="fuelDetails"></div>
       <div class="fuel-history">
-        <div class="fuel-chart-head"><div><strong>Monthly car expenses</strong><small>Fuel and miscellaneous costs</small></div><span>A$300 max</span></div>
+        <button class="fuel-chart-head" id="fuelChartToggle" type="button" aria-expanded="false"><div><strong>Monthly expenses</strong><small id="fuelChartHint">Tap to expand</small></div><span id="currentMonthExpense">A$0.00</span></button>
         <div class="fuel-chart" id="fuelChart" role="img" aria-label="Monthly car-expense bar graph"></div>
       </div>
     </section>
@@ -55,6 +55,7 @@
     <section id="checksSection">
       <div class="section-head"><div><p class="eyebrow">THIS MONTH</p><h2>Owner checks</h2></div><span id="count">0 / 9</span></div>
       <div id="checklist" class="checklist"></div>
+      <button id="showAllChecks" type="button">Show all 9 checks ↓</button>
     </section>
 
     <section>
@@ -63,20 +64,19 @@
     </section>
 
     <section class="backup-card">
-      <div><p class="eyebrow">YOUR DATA</p><h2>Keep a backup</h2><p>Save a copy of your Yaris records in Files on your iPhone.</p></div>
-      <button id="downloadBackup" type="button">⇩ Save backup to Files</button>
+      <button id="downloadBackup" type="button"><span>⇩ <strong>Backup Yaris data</strong></span><b>Save to Files →</b></button>
       <small id="backupStatus" aria-live="polite"></small>
     </section>
 
   </main>
 
-  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260831-39" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260831-39" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260831-39" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260831-39" alt=""><small>Car</small></button></nav>
+  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260901-41" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260901-41" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260901-41" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260901-41" alt=""><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-39"></script>
+  <script src="app.js?v=20260901-41"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-39');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260901-41');
         registration.update();
       });
     }

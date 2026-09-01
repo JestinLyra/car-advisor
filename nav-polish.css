@@ -56,8 +56,11 @@ nav .nav-link.active small {
   color: var(--green);
 }
 
-/* Keep section shortcuts below the iPhone status-bar safe area. */
-#checksSection,
+/* Give the Checks heading the generous status-bar clearance shown on iPhone. */
+#checksSection {
+  scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 82px);
+}
+
 #services {
   scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 24px);
 }
