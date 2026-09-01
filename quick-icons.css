@@ -2,10 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   color: var(--ink);
   font-weight: 700;
   line-height: 1.08;
+}
+
+.quick-grid .quick {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.quick .quick-label {
+  min-height: 34px;
 }
 
 .quick .quick-label span {
@@ -17,8 +29,8 @@
 }
 
 .quick-icon {
-  width: 25px;
-  height: 25px;
+  width: 31px;
+  height: 31px;
   object-fit: contain;
   flex: 0 0 auto;
   background: transparent;
@@ -32,8 +44,8 @@
 }
 
 [data-action="odometer"] .quick-icon {
-  width: 31px;
-  height: 31px;
+  width: 40px;
+  height: 40px;
 }
 
 .quick-label-expenses .quick-icon {
@@ -45,14 +57,12 @@
   letter-spacing: .45px !important;
 }
 
-.quick .quick-icon-note {
-  display: block;
-  width: 31px;
-  height: 34px;
-  margin: 3px auto 2px;
-  transform: none;
-}
-
 .quick-note {
   padding-top: 15px;
+}
+
+.quick-note .quick-action-mark {
+  font-size: 20px;
+  line-height: 1;
+  margin-top: 4px;
 }

@@ -10,12 +10,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260831-36">
-  <link rel="stylesheet" href="styles.css?v=20260831-36">
-  <link rel="stylesheet" href="fuel.css?v=20260831-36">
-  <link rel="stylesheet" href="gestures.css?v=20260831-36">
-  <link rel="stylesheet" href="quick-icons.css?v=20260831-36">
-  <link rel="stylesheet" href="nav-polish.css?v=20260831-36">
+  <link rel="manifest" href="manifest.webmanifest?v=20260831-39">
+  <link rel="stylesheet" href="styles.css?v=20260831-39">
+  <link rel="stylesheet" href="fuel.css?v=20260831-39">
+  <link rel="stylesheet" href="gestures.css?v=20260831-39">
+  <link rel="stylesheet" href="quick-icons.css?v=20260831-39">
+  <link rel="stylesheet" href="nav-polish.css?v=20260831-39">
 </head>
 <body>
   <header>
@@ -25,9 +25,9 @@
 
   <main>
     <section class="quick-grid">
-      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo.png?v=20260831-36" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.png?v=20260831-36" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
-      <button class="quick quick-note" data-action="note"><span>NOTE</span><img class="quick-icon quick-icon-note" src="assets/quick-note.png?v=20260831-36" alt=""><small>add reminder</small></button>
+      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260831-39" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
+      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260831-39" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
+      <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260831-39" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
     </section>
 
     <section class="trip-card" id="tripCard">
@@ -70,13 +70,13 @@
 
   </main>
 
-  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260831-36" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260831-36" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260831-36" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260831-36" alt=""><small>Car</small></button></nav>
+  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260831-39" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260831-39" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260831-39" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260831-39" alt=""><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260831-36"></script>
+  <script src="app.js?v=20260831-39"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-36');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260831-39');
         registration.update();
       });
     }

@@ -42,3 +42,22 @@ nav button:active .nav-icon {
   box-shadow: none;
   transform: scale(.98);
 }
+
+nav button small,
+nav .nav-link small {
+  color: #6b7894;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1px;
+}
+
+nav button.active small,
+nav .nav-link.active small {
+  color: var(--green);
+}
+
+/* Keep section shortcuts below the iPhone status-bar safe area. */
+#checksSection,
+#services {
+  scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 24px);
+}
