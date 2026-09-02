@@ -1,5 +1,6 @@
 :root {
-  --bottom-nav-height: calc(78px + env(safe-area-inset-bottom, 0px));
+  --bottom-nav-content-height: 78px;
+  --bottom-nav-height: calc(var(--bottom-nav-content-height) + env(safe-area-inset-bottom, 0px));
 }
 
 html,
@@ -12,14 +13,20 @@ body {
 }
 
 body {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) var(--bottom-nav-height);
+  height: 100dvh;
   min-height: 0;
   padding-bottom: 0;
+  background: #fff;
 }
 
 .page-viewport {
   display: flex;
+  grid-row: 1;
   width: 100vw;
-  height: calc(100dvh - var(--bottom-nav-height));
+  height: auto;
+  min-height: 0;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -131,7 +138,15 @@ body {
 }
 
 nav {
-  min-height: var(--bottom-nav-height);
+  position: relative;
+  inset: auto;
+  grid-row: 2;
+  width: 100%;
+  height: var(--bottom-nav-height);
+  min-height: 0;
+  padding: 6px 22px max(6px, env(safe-area-inset-bottom, 0px));
+  background: #fff;
+  align-items: flex-start;
 }
 
 nav button {

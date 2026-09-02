@@ -1,23 +1,23 @@
-const CACHE = 'yaris-care-20260902-43';
+const CACHE = 'yaris-care-20260902-44';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=20260902-43',
-  './fuel.css?v=20260902-43',
-  './gestures.css?v=20260902-43',
-  './quick-icons.css?v=20260902-43',
-  './nav-polish.css?v=20260902-43',
-  './compact-layout.css?v=20260902-43',
-  './swipe-pages.css?v=20260902-43',
-  './app.js?v=20260902-43',
-  './manifest.webmanifest?v=20260902-43',
-  './assets/nav-home.png?v=20260902-43',
-  './assets/nav-checks.png?v=20260902-43',
-  './assets/nav-records.png?v=20260902-43',
-  './assets/nav-car.png?v=20260902-43',
-  './assets/quick-odo-c.png?v=20260902-43',
-  './assets/quick-expenses.svg?v=20260902-43',
-  './assets/quick-note.svg?v=20260902-43'
+  './styles.css?v=20260902-44',
+  './fuel.css?v=20260902-44',
+  './gestures.css?v=20260902-44',
+  './quick-icons.css?v=20260902-44',
+  './nav-polish.css?v=20260902-44',
+  './compact-layout.css?v=20260902-44',
+  './swipe-pages.css?v=20260902-44',
+  './app.js?v=20260902-44',
+  './manifest.webmanifest?v=20260902-44',
+  './assets/nav-home.png?v=20260902-44',
+  './assets/nav-checks.png?v=20260902-44',
+  './assets/nav-records.png?v=20260902-44',
+  './assets/nav-car.png?v=20260902-44',
+  './assets/quick-odo-c.png?v=20260902-44',
+  './assets/quick-expenses.svg?v=20260902-44',
+  './assets/quick-note.svg?v=20260902-44'
 ];
 
 self.addEventListener('install', event => {
