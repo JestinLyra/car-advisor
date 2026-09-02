@@ -1,0 +1,153 @@
+:root {
+  --bottom-nav-height: calc(78px + env(safe-area-inset-bottom, 0px));
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.page-viewport {
+  display: flex;
+  width: 100vw;
+  height: calc(100dvh - var(--bottom-nav-height));
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-viewport::-webkit-scrollbar,
+.app-page::-webkit-scrollbar {
+  display: none;
+}
+
+.app-page {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.app-page > header {
+  width: 100%;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 680px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-bottom: 22px;
+  overflow-x: hidden;
+}
+
+.page-content-safe {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 34px);
+}
+
+.page-content-safe > section:first-child,
+.page-content-safe > section:first-child .section-head:first-child {
+  margin-top: 0;
+}
+
+.expense-graph-card .fuel-history {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.car-profile-card,
+.car-notes-card {
+  padding: 17px;
+  border-radius: 21px;
+  background: #fff;
+}
+
+.car-profile-card h2 {
+  margin-top: 5px;
+}
+
+.car-profile-card > p:not(.eyebrow) {
+  margin: 4px 0 14px;
+  color: var(--muted);
+}
+
+.car-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.car-stat strong {
+  color: var(--ink);
+}
+
+.car-notes-card .section-head {
+  margin-top: 0;
+}
+
+.car-note-page-list {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.car-note-page-list .car-note-title {
+  min-height: 52px;
+  padding: 12px 14px;
+}
+
+.car-note-page-list .empty-note {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  min-height: var(--bottom-nav-height);
+}
+
+nav button {
+  min-width: 62px;
+  min-height: 58px;
+}
+
+/* Row gestures stay local and never turn into page swipes. */
+.record-swipe,
+.misc-swipe {
+  touch-action: pan-y;
+}
+
+@media (min-width: 700px) {
+  .app-page > header {
+    padding-left: calc((100% - 636px) / 2);
+    padding-right: calc((100% - 636px) / 2);
+  }
+}

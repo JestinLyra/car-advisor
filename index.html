@@ -10,73 +10,103 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260901-42">
-  <link rel="stylesheet" href="styles.css?v=20260901-42">
-  <link rel="stylesheet" href="fuel.css?v=20260901-42">
-  <link rel="stylesheet" href="gestures.css?v=20260901-42">
-  <link rel="stylesheet" href="quick-icons.css?v=20260901-42">
-  <link rel="stylesheet" href="nav-polish.css?v=20260901-42">
-  <link rel="stylesheet" href="compact-layout.css?v=20260901-42">
+  <link rel="manifest" href="manifest.webmanifest?v=20260902-43">
+  <link rel="stylesheet" href="styles.css?v=20260902-43">
+  <link rel="stylesheet" href="fuel.css?v=20260902-43">
+  <link rel="stylesheet" href="gestures.css?v=20260902-43">
+  <link rel="stylesheet" href="quick-icons.css?v=20260902-43">
+  <link rel="stylesheet" href="nav-polish.css?v=20260902-43">
+  <link rel="stylesheet" href="compact-layout.css?v=20260902-43">
+  <link rel="stylesheet" href="swipe-pages.css?v=20260902-43">
 </head>
 <body>
-  <header>
-    <div class="eyebrow">2011 TOYOTA YARIS · HATCH · 042VRY</div>
-    <h1>Tara!<br><span>Your Yaris is ready.</span></h1>
-  </header>
+  <div class="page-viewport" id="pageViewport">
+    <section class="app-page" id="pageHome" data-page="home" aria-label="Home page">
+      <header>
+        <div class="eyebrow">2011 TOYOTA YARIS · HATCH · 042VRY</div>
+        <h1>Tara!<br><span>Your Yaris is ready.</span></h1>
+      </header>
+      <main class="page-content">
+        <section class="quick-grid">
+          <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260902-43" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
+          <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260902-43" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
+          <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260902-43" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
+        </section>
 
-  <main>
-    <section class="quick-grid">
-      <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260901-42" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-      <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260901-42" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
-      <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260901-42" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
+        <section class="trip-card" id="tripCard">
+          <div id="tripBody">
+            <div class="trip-copy"><p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2><p>Tyres · oil · water · lights · fuel · roadside kit</p></div>
+            <button id="tripCheck">Open →</button>
+          </div>
+        </section>
+
+        <section class="fuel-card">
+          <div class="section-head fuel-head"><div><p class="eyebrow">FUEL LOG</p><h2>Last refuel</h2></div><button class="text-btn" id="editFuel">Edit</button></div>
+          <div class="fuel-details" id="fuelDetails"></div>
+        </section>
+      </main>
     </section>
 
-    <section class="trip-card" id="tripCard">
-      <div id="tripBody">
-        <div class="trip-copy"><p class="eyebrow">BEFORE A LONG DRIVE</p><h2>Five-minute safety check</h2><p>Tyres · oil · water · lights · fuel · roadside kit</p></div>
-        <button id="tripCheck">Open →</button>
-      </div>
+    <section class="app-page" id="pageChecks" data-page="checks" aria-label="Checks page">
+      <main class="page-content page-content-safe">
+        <section id="checksSection" class="checks-expanded">
+          <div class="section-head"><div><p class="eyebrow">THIS MONTH</p><h2>Owner checks</h2></div><span id="count">0 / 9</span></div>
+          <div id="checklist" class="checklist"></div>
+        </section>
+      </main>
     </section>
 
-    <section class="fuel-card">
-      <div class="section-head fuel-head"><div><p class="eyebrow">FUEL LOG</p><h2>Last refuel</h2></div><button class="text-btn" id="editFuel">Edit</button></div>
-      <div class="fuel-details" id="fuelDetails"></div>
-      <div class="fuel-history">
-        <button class="fuel-chart-head" id="fuelChartToggle" type="button" aria-expanded="false"><div><strong>Monthly expenses</strong><small class="fuel-chart-meta"><span id="fuelChartHint">Tap to expand</span><span class="fuel-chart-legend" aria-label="Fuel is blue; car miscellaneous is beige"><i class="legend-fuel"></i>Fuel <i class="legend-misc"></i>Car misc.</span></small></div><span id="currentMonthExpense">A$0.00</span></button>
-        <div class="fuel-chart" id="fuelChart" role="img" aria-label="Monthly car-expense bar graph"></div>
-      </div>
+    <section class="app-page" id="pageRecords" data-page="records" aria-label="Records page">
+      <main class="page-content page-content-safe">
+        <section class="fuel-card expense-graph-card">
+          <div class="section-head fuel-head"><div><p class="eyebrow">SPENDING</p><h2>Monthly expenses</h2></div></div>
+          <div class="fuel-history">
+            <button class="fuel-chart-head" id="fuelChartToggle" type="button" aria-expanded="false"><div><strong>Six-month overview</strong><small class="fuel-chart-meta"><span id="fuelChartHint">Tap to expand</span><span class="fuel-chart-legend" aria-label="Fuel is blue; car miscellaneous is beige"><i class="legend-fuel"></i>Fuel <i class="legend-misc"></i>Car misc.</span></small></div><span id="currentMonthExpense">A$0.00</span></button>
+            <div class="fuel-chart" id="fuelChart" role="img" aria-label="Monthly car-expense bar graph"></div>
+          </div>
+        </section>
+
+        <section class="misc-card">
+          <div class="section-head misc-head"><div><p class="eyebrow">OTHER COSTS</p><div class="misc-title"><h2>Car miscellaneous</h2><button id="undoMiscExpense" type="button" disabled>↶ Undo</button></div></div><button class="text-btn" id="addMiscExpense">+ Add</button></div>
+          <div id="miscExpenses" class="misc-expenses"></div>
+        </section>
+
+        <section>
+          <div class="section-head"><div><p class="eyebrow">SERVICE BOOK</p><div class="reminder-title"><h2>Reminders</h2><button id="undoReminder" type="button" disabled>↶ Undo</button></div></div><button class="text-btn" id="addService">+ Add</button></div>
+          <div id="services" class="records"></div>
+        </section>
+
+        <section class="backup-card">
+          <button id="downloadBackup" type="button"><span>⇩ <strong>Backup Yaris data</strong></span><b>Save to Files →</b></button>
+          <small id="backupStatus" aria-live="polite"></small>
+        </section>
+      </main>
     </section>
 
-    <section class="misc-card">
-      <div class="section-head misc-head"><div><p class="eyebrow">OTHER COSTS</p><div class="misc-title"><h2>Car miscellaneous</h2><button id="undoMiscExpense" type="button" disabled>↶ Undo</button></div></div><button class="text-btn" id="addMiscExpense">+ Add</button></div>
-      <div id="miscExpenses" class="misc-expenses"></div>
+    <section class="app-page" id="pageCar" data-page="car" aria-label="Car page">
+      <main class="page-content page-content-safe">
+        <section class="car-profile-card">
+          <p class="eyebrow">YOUR CAR</p>
+          <h2>2011 Toyota Yaris</h2>
+          <p>Hatch · 042VRY</p>
+          <div class="car-stat"><span>Baseline odometer</span><strong>285,915 km</strong></div>
+          <div class="car-stat"><span>Current odometer</span><strong id="carCurrentOdo">285,915 km</strong></div>
+        </section>
+        <section class="car-notes-card">
+          <div class="section-head"><div><p class="eyebrow">CAR FILE</p><h2>Notes & information</h2></div><button class="text-btn" id="addCarNotePage">+ Add</button></div>
+          <div id="carNotesPage" class="car-note-page-list"></div>
+        </section>
+      </main>
     </section>
+  </div>
 
-    <section id="checksSection">
-      <div class="section-head"><div><p class="eyebrow">THIS MONTH</p><h2>Owner checks</h2></div><span id="count">0 / 9</span></div>
-      <div id="checklist" class="checklist"></div>
-      <button id="showAllChecks" type="button">Show all 9 checks ↓</button>
-    </section>
-
-    <section>
-      <div class="section-head"><div><p class="eyebrow">SERVICE BOOK</p><div class="reminder-title"><h2>Reminders</h2><button id="undoReminder" type="button" disabled>↶ Undo</button></div></div><button class="text-btn" id="addService">+ Add</button></div>
-      <div id="services" class="records"></div>
-    </section>
-
-    <section class="backup-card">
-      <button id="downloadBackup" type="button"><span>⇩ <strong>Backup Yaris data</strong></span><b>Save to Files →</b></button>
-      <small id="backupStatus" aria-live="polite"></small>
-    </section>
-
-  </main>
-
-  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260901-42" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260901-42" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260901-42" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260901-42" alt=""><small>Car</small></button></nav>
+  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260902-43" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260902-43" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260902-43" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260902-43" alt=""><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="app.js?v=20260901-42"></script>
+  <script src="app.js?v=20260902-43"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260901-42');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260902-43');
         registration.update();
       });
     }
