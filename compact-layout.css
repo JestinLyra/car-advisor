@@ -1,5 +1,14 @@
 /* Compact iPhone layout: preserve features while showing more per screen. */
 
+.app-version {
+  margin-left: 3px;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: none;
+  white-space: nowrap;
+}
+
 header {
   padding-top: calc(18px + env(safe-area-inset-top));
   padding-bottom: 18px;

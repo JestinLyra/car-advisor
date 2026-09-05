@@ -11,6 +11,6 @@ An iPhone-first maintenance tracker for a 2011 Toyota Yaris hatchback. Four full
 
 ## Publishing an update
 
-Upload every changed file. The app uses a versioned service worker and versioned asset URLs to replace old cached builds. For each future release, change every occurrence of the release value (currently `20260903-46`) in `index.html` and `sw.js`, including the cache name.
+Upload every changed file. The app uses a versioned service worker and versioned asset URLs to replace old cached builds. For each future release, change every occurrence of the release value (currently `20260905-47`) in `index.html` and `sw.js`, including the cache name.
 
-If an iPhone still shows the old build immediately after this first cache-busting release, open the GitHub Pages URL once in Safari with `?update=20260903-46` added to the end, refresh, then reopen the Home Screen app.
+If an iPhone still shows the old build immediately after this first cache-busting release, open the GitHub Pages URL once in Safari with `?update=20260905-47` added to the end, refresh, then reopen the Home Screen app.

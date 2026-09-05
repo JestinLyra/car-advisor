@@ -10,27 +10,27 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My Yaris Care</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260903-46">
-  <link rel="stylesheet" href="styles.css?v=20260903-46">
-  <link rel="stylesheet" href="fuel.css?v=20260903-46">
-  <link rel="stylesheet" href="gestures.css?v=20260903-46">
-  <link rel="stylesheet" href="quick-icons.css?v=20260903-46">
-  <link rel="stylesheet" href="nav-polish.css?v=20260903-46">
-  <link rel="stylesheet" href="compact-layout.css?v=20260903-46">
-  <link rel="stylesheet" href="swipe-pages.css?v=20260903-46">
+  <link rel="manifest" href="manifest.webmanifest?v=20260905-47">
+  <link rel="stylesheet" href="styles.css?v=20260905-47">
+  <link rel="stylesheet" href="fuel.css?v=20260905-47">
+  <link rel="stylesheet" href="gestures.css?v=20260905-47">
+  <link rel="stylesheet" href="quick-icons.css?v=20260905-47">
+  <link rel="stylesheet" href="nav-polish.css?v=20260905-47">
+  <link rel="stylesheet" href="compact-layout.css?v=20260905-47">
+  <link rel="stylesheet" href="swipe-pages.css?v=20260905-47">
 </head>
 <body>
   <div class="page-viewport" id="pageViewport">
     <section class="app-page" id="pageHome" data-page="home" aria-label="Home page">
       <header>
-        <div class="eyebrow">2011 TOYOTA YARIS · HATCH · 042VRY</div>
+        <div class="eyebrow">2011 TOYOTA YARIS · HATCH · 042VRY <span class="app-version">v1.0.47</span></div>
         <h1>Tara!<br><span>Your Yaris is ready.</span></h1>
       </header>
       <main class="page-content">
         <section class="quick-grid">
-          <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260903-46" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
-          <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260903-46" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
-          <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260903-46" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
+          <button class="quick" data-action="odometer"><span class="quick-label"><img class="quick-icon" src="assets/quick-odo-c.png?v=20260905-47" alt="">ODO</span><strong id="odo">285,915</strong><small>km</small></button>
+          <div class="quick expense-summary" aria-label="Monthly car expenses"><span class="quick-label quick-label-expenses"><img class="quick-icon" src="assets/quick-expenses.svg?v=20260905-47" alt=""><span>MONTHLY CAR<br>EXPENSES</span></span><strong id="fuel">A$0.00</strong><small>this month</small></div>
+          <button class="quick quick-note" data-action="note"><span class="quick-label"><img class="quick-icon" src="assets/quick-note.svg?v=20260905-47" alt="">NOTE</span><strong class="quick-action-mark">＋</strong><small>add reminder</small></button>
         </section>
 
         <section class="trip-card" id="tripCard">
@@ -100,14 +100,14 @@
     </section>
   </div>
 
-  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260903-46" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260903-46" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260903-46" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260903-46" alt=""><small>Car</small></button></nav>
+  <nav><button class="active" id="navHome"><img class="nav-icon" src="assets/nav-home.png?v=20260905-47" alt=""><small>Home</small></button><button id="navChecks"><img class="nav-icon" src="assets/nav-checks.png?v=20260905-47" alt=""><small>Checks</small></button><button id="navRecords"><img class="nav-icon" src="assets/nav-records.png?v=20260905-47" alt=""><small>Records</small></button><button id="navCar" aria-label="Edit car information"><img class="nav-icon nav-icon-car" src="assets/nav-car.png?v=20260905-47" alt=""><small>Car</small></button></nav>
   <dialog id="modal"><form method="dialog"><h2 id="modalTitle"></h2><div id="modalBody"></div><div class="dialog-actions"><button value="cancel">Cancel</button><button value="save" id="modalSave">Save</button></div></form></dialog>
-  <script src="backup.js?v=20260903-46"></script>
-  <script src="app.js?v=20260903-46"></script>
+  <script src="backup.js?v=20260905-47"></script>
+  <script src="app.js?v=20260905-47"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js?v=20260903-46');
+        const registration = await navigator.serviceWorker.register('./sw.js?v=20260905-47');
         registration.update();
       });
     }
